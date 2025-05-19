@@ -1,9 +1,18 @@
-from flask import Flask  # Import the Flask class
+from flask import Flask, render_template
 
-app = Flask(__name__)  # Create a Flask application instance
+app = Flask(__name__)  
 
-@app.route("/")  # Define the route for the home page
-def hello_world(): 
-    return "<p>Hello</p>"  # Return a simple HTML response
+@app.route("/")  
+def home(): 
+    return render_template("home.html")
+@app.route("/services")  
+def services(): 
+    return render_template("services.html")
+@app.route("/contact")  
+def contact(): 
+    return render_template("contact.html")
+@app.route("/about")  
+def about(): 
+    return render_template("about.html")
 
-app.run(debug=True)  # Run the app in debug mode
+app.run(debug=True) 
